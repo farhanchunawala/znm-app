@@ -5,20 +5,20 @@ import Header from './components/Header';
 import { Counter } from './features/counter/Counter';
 
 export const App = () => {
-  return (
-    <View style={styles.container}>
-      <Header />
-      <Counter />
-      <StatusBar style="auto" />
-    </View>
-  );
+	return (
+		<View style={styles.container}>
+			<Header />
+			<Counter />
+			<StatusBar style="auto" />
+		</View>
+	);
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+	container: {
+		flex: 1,
+		backgroundColor: '#fff',
+		alignItems: 'center',
+		justifyContent: 'center',
+	},
 });
