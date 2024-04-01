@@ -1,4 +1,3 @@
-import React from 'react';
 import { TouchableOpacity, StyleSheet, View } from 'react-native';
 import { Svg, Path, G, Defs, ClipPath, Rect } from 'react-native-svg';
 
