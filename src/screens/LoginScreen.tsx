@@ -6,25 +6,63 @@ import {
 	View,
 	Image,
 } from 'react-native';
+import axios from 'axios';
 import { Svg, Path } from 'react-native-svg';
 
 export default function LoginScreen() {
+	const otpLogin = async () => {
+		try {
+			const response = await axios.post(
+				'https://www.cancermitr.com/api/v1/cm_otp_login',
+				{
+					email_mobile: 9769735377,
+					termsOfUse: true,
+				},
+			);
+
+			if (response.data.type === 'success') {
+				console.log('OTP sent successfully');
+				// You can navigate to another screen or update the state here
+			} else {
+				// Handle the case where the OTP is not sent
+				console.log('OTP failed:', response.data.message);
+			}
+		} catch (error) {
+			console.error('OTP error:', error);
+			// Handle any errors that occur during the HTTP request
+		}
+	};
+
+	const otpVerify = async () => {
+		try {
+			const response = await axios.post(
+				'https://www.cancermitr.com/api/v1/cm_loginotpverify',
+				{
+					to_mobilecm: '9769735377',
+					otp1: '0',
+					otp2: '7',
+					otp3: '0',
+					otp4: '6',
+					otp5: '0',
+					otp6: '6',
+				},
+			);
+
+			if (response.data.type === 'success') {
+				console.log('Login successful');
+				// You can navigate to another screen or update the state here
+			} else {
+				// Handle the case where the login is not successful
+				console.log('Login failed:', response.data.message);
+			}
+		} catch (error) {
+			console.error('Login error:', error);
+			// Handle any errors that occur during the HTTP request
+		}
+	};
+
 	return (
 		<View style={styles.container}>
-			{/* <View style={styles.card}>
-				<Svg style={styles.cancel} width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<Path d="M15.589 5.58904L14.4106 4.41071L9.99981 8.82154L5.58898 4.41071L4.41064 5.58904L8.82148 9.99987L4.41064 14.4107L5.58898 15.589L9.99981 11.1782L14.4106 15.589L15.589 14.4107L11.1781 9.99987L15.589 5.58904Z" fill="#656565"/>
-				</Svg>
-				<Image style={styles.logo} source={require('../../assets/images/cm_logo3.png')}/>
-				<Text style={styles.welcome}>Welcome to CancerMitr</Text>
-				<TextInput style={styles.input} placeholder="Mobile No." keyboardType="phone-pad"/>
-				<Text style={styles.policy}>
-					I agree to CancerMitr's Terms and Conditions and Privacy Policy.
-				</Text>
-				<TouchableOpacity style={styles.logInButton}>
-					<Text style={styles.logInText}>Log In</Text>
-				</TouchableOpacity>
-			</View> */}
 			<View style={styles.card}>
 				<TouchableOpacity>
 					<Svg
@@ -42,13 +80,19 @@ export default function LoginScreen() {
 				</TouchableOpacity>
 				<Image
 					style={styles.logo}
-					// source={require('../../assets/images/cm_logo3.png')}
+					source={require('../../assets/images/cm_logo3.png')}
 				/>
-				<Text style={styles.welcome}>Confirm Contact Number</Text>
-				<Text style={styles.code}>
+				<Text style={styles.welcome}>Welcome to CancerMitr</Text>
+				{/* <Text style={styles.welcome}>Confirm Contact Number</Text> */}
+				{/* <Text style={styles.code}>
 					Enter the code we&apos;ve sent via SMS to +91 7506904997
-				</Text>
-				<View style={styles.otpInputContainer}>
+				</Text> */}
+				<TextInput
+					style={styles.input}
+					placeholder="Mobile No."
+					keyboardType="phone-pad"
+				/>
+				{/* <View style={styles.otpInputContainer}>
 					<TextInput
 						style={styles.otpInput}
 						placeholder=" "
@@ -79,12 +123,17 @@ export default function LoginScreen() {
 						placeholder=" "
 						keyboardType="phone-pad"
 					/>
-				</View>
+				</View> */}
 				<Text style={styles.policy}>
-					Haven&apos;t received a code? Resend OTP
+					I agree to CancerMitr&apos;s Terms and Conditions and
+					Privacy Policy.
 				</Text>
-				<TouchableOpacity style={styles.logInButton}>
-					<Text style={styles.logInText}>Submit</Text>
+				{/* <Text style={styles.policy}>
+					Haven&apos;t received a code? Resend OTP
+				</Text> */}
+				<TouchableOpacity onPress={otpLogin} style={styles.logInButton}>
+					<Text style={styles.logInText}>Log In</Text>
+					{/* <Text style={styles.logInText}>Submit</Text> */}
 				</TouchableOpacity>
 			</View>
 		</View>
