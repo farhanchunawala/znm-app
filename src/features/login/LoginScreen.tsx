@@ -8,6 +8,7 @@ import {
 	Image,
 } from 'react-native';
 import axios from 'axios';
+import { useNavigation } from '@react-navigation/native';
 import { Svg, Path } from 'react-native-svg';
 
 interface State {
@@ -27,6 +28,7 @@ interface PopupProps {
 }
 
 export default function LoginScreen() {
+	const navigation = useNavigation();
 	const [state, setState] = useState<State>({
 		show: false,
 		popup: 'popup1',
@@ -89,6 +91,7 @@ export default function LoginScreen() {
 
 			if (response.data.type === 'success') {
 				console.log('Login successful');
+				navigation.navigate('Home');
 			} else {
 				console.log('Login failed:', response.data.message);
 			}
