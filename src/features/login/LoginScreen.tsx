@@ -7,9 +7,11 @@ import {
 	View,
 	Image,
 } from 'react-native';
-import axios from 'axios';
-import { useNavigation } from '@react-navigation/native';
 import { Svg, Path } from 'react-native-svg';
+import { useNavigation } from '@react-navigation/native';
+import { useDispatch } from 'react-redux';
+import { logIn } from './loginSlice';
+import axios from 'axios';
 
 interface State {
 	show: boolean;
@@ -29,6 +31,8 @@ interface PopupProps {
 
 export default function LoginScreen() {
 	const navigation = useNavigation();
+	const dispatch = useDispatch();
+
 	const [state, setState] = useState<State>({
 		show: false,
 		popup: 'popup1',
@@ -59,7 +63,6 @@ export default function LoginScreen() {
 					termsOfUse: state.termsOfUse,
 				},
 			);
-
 			if (response.data.type === 'success') {
 				console.log('OTP sent successfully');
 				setState(prevState => ({
@@ -88,9 +91,9 @@ export default function LoginScreen() {
 					otp6: state.otps[5],
 				},
 			);
-
 			if (response.data.type === 'success') {
 				console.log('Login successful');
+				dispatch(logIn());
 				navigation.navigate('Home');
 			} else {
 				console.log('Login failed:', response.data.message);
