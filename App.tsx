@@ -1,9 +1,9 @@
 import { Text } from 'react-native';
-import { StatusBar } from 'expo-status-bar';
 import { Provider } from 'react-redux';
-import { store } from './src/app/store';
+import { PersistGate } from 'redux-persist/integration/react';
+import { store, persistor } from './src/app/store';
 import AppNavigator from './src/AppNavigator';
-// import axios from 'axios';
+import { StatusBar } from 'expo-status-bar';
 import {
 	useFonts,
 	Montserrat_300Light,
@@ -49,8 +49,10 @@ const MainApp = () => {
 
 	return (
 		<Provider store={store}>
-			<StatusBar style="auto" />
-			<AppNavigator />
+			<PersistGate loading={null} persistor={persistor}>
+				<StatusBar style="auto" />
+				<AppNavigator />
+			</PersistGate>
 		</Provider>
 	);
 };

@@ -138,7 +138,7 @@ function Popup1({ state, onInputChange, otpLogin }: PopupProps) {
 				</TouchableOpacity>
 				<Image
 					style={styles.logo}
-					source={require('../../assets/images/cm_logo3.png')}
+					source={require('../../../assets/images/cm_logo3.png')}
 				/>
 				<Text style={styles.welcome}>Welcome to CancerMitr</Text>
 				<Text style={styles.code}> </Text>
@@ -180,7 +180,7 @@ function Popup2({ state, onInputChange, otpVerify }: PopupProps) {
 				</TouchableOpacity>
 				<Image
 					style={styles.logo}
-					source={require('../../assets/images/cm_logo3.png')}
+					source={require('../../../assets/images/cm_logo3.png')}
 				/>
 				<Text style={styles.welcome}>Welcome to CancerMitr</Text>
 				<Text style={styles.code}>

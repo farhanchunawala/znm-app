@@ -3,12 +3,12 @@ import { RootState } from '../../app/store';
 // import { fetchCount } from './counterAPI';
 
 interface CounterState {
-	value: number;
-	status: 'idle' | 'loading' | 'failed';
+	login: 'loggedIn' | 'loggedOut';
+	// status: 'idle' | 'loading' | 'failed';
 }
 const initialState: CounterState = {
-	value: 0,
-	status: 'idle',
+	login: 'loggedOut',
+	// status: 'idle',
 };
 
 // The function below is called a thunk and allows us to perform async logic. It
