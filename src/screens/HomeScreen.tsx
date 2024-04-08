@@ -6,7 +6,6 @@ import { StyleSheet, View, ScrollView } from 'react-native';
 // import { captureRef } from 'react-native-view-shot';
 // import domtoimage from 'dom-to-image';
 
-import Header from '../features/Header';
 import TabNav from '../features/TabNav';
 import ProfileDashboard from '../features/ProfileDashboard';
 import Categories from '../features/Categories';
@@ -21,7 +20,6 @@ export default function HomeScreen() {
 	return (
 		<View style={styles.main}>
 			<ScrollView>
-				<Header />
 				<ProfileDashboard />
 				<Categories />
 				<PrimeCards />
@@ -40,7 +38,6 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
 	main: {
 		flex: 1,
-		paddingTop: 34,
 		overflow: 'scroll',
 		paddingBottom: 83,
 		backgroundColor: '#f8f8f8',

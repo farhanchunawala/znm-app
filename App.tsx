@@ -3,6 +3,7 @@ import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { store, persistor } from './src/app/store';
 import AppNavigator from './src/AppNavigator';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
 import {
 	useFonts,
@@ -50,8 +51,10 @@ const MainApp = () => {
 	return (
 		<Provider store={store}>
 			<PersistGate loading={null} persistor={persistor}>
-				<StatusBar style="auto" />
-				<AppNavigator />
+				<SafeAreaProvider>
+					<StatusBar style="auto" />
+					<AppNavigator />
+				</SafeAreaProvider>
 			</PersistGate>
 		</Provider>
 	);
