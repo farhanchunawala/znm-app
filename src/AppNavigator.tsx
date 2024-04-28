@@ -7,6 +7,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { RootState } from './app/store';
 import Header from './features/Header';
 import LoginScreen from './features/login/LoginScreen';
+import ContactsScreen from './screens/ContactsScreen/ContactsScreen';
 import HomeScreen from './screens/HomeScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import ProfileEditScreen from './screens/ProfileEditScreen';
@@ -30,7 +31,8 @@ const AppNavigator = () => {
 		<SafeAreaView style={{ flex: 1 }}>
 			<NavigationContainer>
 				<Stack.Navigator
-					initialRouteName={loginStatus ? 'Home' : 'Login'}>
+					// initialRouteName={loginStatus ? 'Home' : 'Login'}>
+					initialRouteName='Contacts'>
 					<Stack.Screen
 						name="Login"
 						component={LoginScreen}
@@ -39,6 +41,11 @@ const AppNavigator = () => {
 					<Stack.Screen
 						name="Home"
 						component={HomeScreen}
+						options={{ header: Header }}
+					/>
+					<Stack.Screen
+						name="Contacts"
+						component={ContactsScreen}
 						options={{ header: Header }}
 					/>
 					<Stack.Screen

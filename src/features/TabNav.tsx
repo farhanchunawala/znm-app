@@ -9,6 +9,22 @@ export default function TabNav() {
 		<View style={styles.container}>
 			<View style={styles.tabContainer}>
 				<TouchableOpacity
+					onPress={() => navigation.navigate('Profile')}
+					style={styles.tab}>
+					<Svg
+						style={styles.tabIcon}
+						width="25"
+						height="24"
+						viewBox="0 0 25 24"
+						fill="none">
+						<Path
+							d="M12.5 2C9.87996 2 7.74996 4.13 7.74996 6.75C7.74996 9.32 9.75996 11.4 12.38 11.49C12.46 11.48 12.54 11.48 12.6 11.49H12.67C13.8993 11.449 15.0645 10.9315 15.9192 10.0469C16.774 9.16234 17.2512 7.98004 17.25 6.75C17.25 4.13 15.12 2 12.5 2ZM17.58 14.149C14.79 12.289 10.24 12.289 7.42996 14.149C6.15996 14.999 5.45996 16.149 5.45996 17.379C5.45996 18.609 6.15996 19.749 7.41996 20.589C8.81996 21.529 10.66 21.999 12.5 21.999C14.34 21.999 16.18 21.529 17.58 20.589C18.84 19.739 19.54 18.599 19.54 17.359C19.53 16.129 18.84 14.989 17.58 14.149Z"
+							fill="#313068"
+						/>
+					</Svg>
+					<Text style={styles.tabText}>Contacts</Text>
+				</TouchableOpacity>
+				{/* <TouchableOpacity
 					onPress={() => navigation.navigate('Home')}
 					style={styles.tab}>
 					<Svg
@@ -35,8 +51,8 @@ export default function TabNav() {
 						</Defs>
 					</Svg>
 					<Text style={styles.tabText}>Home</Text>
-				</TouchableOpacity>
-				<TouchableOpacity
+				</TouchableOpacity> */}
+				{/* <TouchableOpacity
 					onPress={() => navigation.navigate('Services')}
 					style={styles.tab}>
 					<Svg
@@ -100,8 +116,8 @@ export default function TabNav() {
 					</Svg>
 
 					<Text style={styles.tabText}>Services</Text>
-				</TouchableOpacity>
-				<TouchableOpacity
+				</TouchableOpacity> */}
+				{/* <TouchableOpacity
 					onPress={() => navigation.navigate('Membership')}
 					style={styles.tab}>
 					<Svg
@@ -124,7 +140,7 @@ export default function TabNav() {
 						/>
 					</Svg>
 					<Text style={styles.tabText}>Resource</Text>
-				</TouchableOpacity>
+				</TouchableOpacity> */}
 				<TouchableOpacity
 					onPress={() => navigation.navigate('HealthLocker')}
 					style={styles.tab}>
@@ -147,23 +163,7 @@ export default function TabNav() {
 							fill="#2D255E"
 						/>
 					</Svg>
-					<Text style={styles.tabText}>Health Locker</Text>
-				</TouchableOpacity>
-				<TouchableOpacity
-					onPress={() => navigation.navigate('Profile')}
-					style={styles.tab}>
-					<Svg
-						style={styles.tabIcon}
-						width="25"
-						height="24"
-						viewBox="0 0 25 24"
-						fill="none">
-						<Path
-							d="M12.5 2C9.87996 2 7.74996 4.13 7.74996 6.75C7.74996 9.32 9.75996 11.4 12.38 11.49C12.46 11.48 12.54 11.48 12.6 11.49H12.67C13.8993 11.449 15.0645 10.9315 15.9192 10.0469C16.774 9.16234 17.2512 7.98004 17.25 6.75C17.25 4.13 15.12 2 12.5 2ZM17.58 14.149C14.79 12.289 10.24 12.289 7.42996 14.149C6.15996 14.999 5.45996 16.149 5.45996 17.379C5.45996 18.609 6.15996 19.749 7.41996 20.589C8.81996 21.529 10.66 21.999 12.5 21.999C14.34 21.999 16.18 21.529 17.58 20.589C18.84 19.739 19.54 18.599 19.54 17.359C19.53 16.129 18.84 14.989 17.58 14.149Z"
-							fill="#313068"
-						/>
-					</Svg>
-					<Text style={styles.tabText}>Profile</Text>
+					<Text style={styles.tabText}>Inventory</Text>
 				</TouchableOpacity>
 			</View>
 		</View>

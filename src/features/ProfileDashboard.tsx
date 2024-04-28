@@ -1,15 +1,42 @@
 import { useNavigation } from '@react-navigation/native';
 import { TouchableOpacity, StyleSheet, Text, View, Image } from 'react-native';
 import { Svg, Path } from 'react-native-svg';
+import * as Contacts from 'expo-contacts';
+import { useEffect } from 'react';
 
 export default function ProfileDashboard() {
 	const navigation = useNavigation();
+
+	useEffect(() => {
+		(async () => {
+			const { status } = await Contacts.requestPermissionsAsync();
+			if (status === 'granted') {
+				const { data } = await Contacts.getContactsAsync({
+					fields: [Contacts.Fields.Emails],
+				});
+
+				if (data.length > 0) {
+					const contact = data[0];
+					console.log(contact);
+				}
+			}
+		})();
+	}, []);
+
+	const addContact = async () => {
+		const contact = {
+			[Contacts.Fields.FirstName]: 'Bird',
+			[Contacts.Fields.LastName]: 'Man',
+			[Contacts.Fields.Company]: 'Young Money',
+		};
+		const contactId = await Contacts.addContactAsync(contact);
+	};
 
 	return (
 		<View style={styles.profile}>
 			<View style={styles.membership_no}>
 				<Text>Membership No. :CMMS2023032C</Text>
-				<TouchableOpacity>
+				<TouchableOpacity onPress={addContact}>
 					<Svg
 						width="20"
 						height="20"
