@@ -7,7 +7,8 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { RootState } from './app/store';
 import Header from './components/Header';
 import LoginScreen from './features/login/LoginScreen';
-import ContactsScreen from './screens/ContactsScreen/ContactsScreen';
+import Contacts from './screens/Contacts/Screen';
+import AddContacts from './screens/AddContacts/Screen';
 import HomeScreen from './screens/HomeScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import ProfileEditScreen from './screens/ProfileEditScreen';
@@ -45,7 +46,12 @@ const AppNavigator = () => {
 					/>
 					<Stack.Screen
 						name="Contacts"
-						component={ContactsScreen}
+						component={Contacts}
+						options={{ header: Header }}
+					/>
+					<Stack.Screen
+						name="AddContacts"
+						component={AddContacts}
 						options={{ header: Header }}
 					/>
 					<Stack.Screen

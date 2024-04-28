@@ -4,7 +4,7 @@ import { Svg, Path, G, Defs, ClipPath, Rect } from 'react-native-svg';
 export default function Header() {
 	return (
 		<View style={styles.container}>
-			<TouchableOpacity>
+			{/* <TouchableOpacity>
 				<Svg
 					style={styles.menu}
 					xmlns="http://www.w3.org/2000/svg"
@@ -34,9 +34,9 @@ export default function Header() {
 						stroke-linejoin="round"
 					/>
 				</Svg>
-			</TouchableOpacity>
+			</TouchableOpacity> */}
 			{/* <Text style={styles.title}>Zoll & Meter</Text> */}
-			<TouchableOpacity>
+			{/* <TouchableOpacity>
 				<Svg
 					width="20"
 					height="20"
@@ -63,7 +63,7 @@ export default function Header() {
 						</G>
 					</G>
 				</Svg>
-			</TouchableOpacity>
+			</TouchableOpacity> */}
 		</View>
 	);
 }
@@ -74,7 +74,8 @@ const styles = StyleSheet.create({
 		height: 52,
 		width: '100%',
 		flexDirection: 'row',
-		justifyContent: 'space-between',
+		justifyContent: 'center',
+		// justifyContent: 'space-between',
 		alignItems: 'center',
 		paddingHorizontal: 16,
 	},
