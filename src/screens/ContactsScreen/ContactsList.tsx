@@ -24,8 +24,8 @@ export default function ProfileDashboard() {
 		const fetchData = async () => {
 			try {
 				const response = await axios.get(
-					// 'http://192.168.194.86:3000/api/user',
-					'http://192.168.1.47:3000/api/user',
+					'http://192.168.194.86:3000/api/user',
+					// 'http://192.168.1.47:3000/api/user',
 				);
 				setUsers(response.data); // assuming the data array contains the user data
 				setLoading(false);

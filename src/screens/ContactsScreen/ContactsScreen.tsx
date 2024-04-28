@@ -6,8 +6,8 @@ import { StyleSheet, View, ScrollView } from 'react-native';
 // import { captureRef } from 'react-native-view-shot';
 // import domtoimage from 'dom-to-image';
 
-import TabNav from '../../features/TabNav';
-import ContactsList from '../../features/ContactsList';
+import TabNav from '../../components/TabNav';
+import ContactsList from './ContactsList';
 
 export default function ContactsScreen() {
 	return (

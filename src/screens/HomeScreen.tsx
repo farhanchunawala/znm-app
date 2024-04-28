@@ -6,7 +6,7 @@ import { StyleSheet, View, ScrollView } from 'react-native';
 // import { captureRef } from 'react-native-view-shot';
 // import domtoimage from 'dom-to-image';
 
-import TabNav from '../features/TabNav';
+import TabNav from '../components/TabNav';
 import ProfileDashboard from '../features/ProfileDashboard';
 import Categories from '../features/Categories';
 import PrimeCards from '../features/PrimeCards';

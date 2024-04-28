@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import { Svg, Path, G, Defs, ClipPath, Rect, Circle } from 'react-native-svg';
 
-import Header from '../features/Header';
+import Header from '../components/Header';
 export default function MembershipBenefits() {
 	return (
 		<View style={styles.container}>

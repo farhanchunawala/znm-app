@@ -5,7 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { RootState } from './app/store';
-import Header from './features/Header';
+import Header from './components/Header';
 import LoginScreen from './features/login/LoginScreen';
 import ContactsScreen from './screens/ContactsScreen/ContactsScreen';
 import HomeScreen from './screens/HomeScreen';

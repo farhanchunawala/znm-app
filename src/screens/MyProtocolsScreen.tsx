@@ -6,8 +6,8 @@ import { StyleSheet, View, ScrollView } from 'react-native';
 // import { captureRef } from 'react-native-view-shot';
 // import domtoimage from 'dom-to-image';
 
-import Header from '../features/Header';
-import TabNav from '../features/TabNav';
+import Header from '../components/Header';
+import TabNav from '../components/TabNav';
 import WorkInProgress from '../features/WorkInProgress';
 
 export default function MyProtocolsScreen() {

@@ -11,8 +11,8 @@ import {
 import { Svg, Path, G, Defs, ClipPath, Rect, Circle } from 'react-native-svg';
 
 import SponsorShip from '../features/SponsorShip';
-import TabNav from '../features/TabNav';
-import Header from '../features/Header';
+import TabNav from '../components/TabNav';
+import Header from '../components/Header';
 
 const services = {
 	diagnostics: {
