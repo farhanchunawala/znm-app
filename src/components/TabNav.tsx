@@ -9,7 +9,7 @@ export default function TabNav() {
 		<View style={styles.container}>
 			<View style={styles.tabContainer}>
 				<TouchableOpacity
-					onPress={() => navigation.navigate('Profile')}
+					onPress={() => navigation.navigate('Contacts')}
 					style={styles.tab}>
 					<Svg
 						style={styles.tabIcon}
@@ -142,7 +142,7 @@ export default function TabNav() {
 					<Text style={styles.tabText}>Resource</Text>
 				</TouchableOpacity> */}
 				<TouchableOpacity
-					onPress={() => navigation.navigate('HealthLocker')}
+					onPress={() => navigation.navigate('Fabrics')}
 					style={styles.tab}>
 					<Svg
 						style={styles.tabIcon}

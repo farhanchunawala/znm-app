@@ -1,15 +1,7 @@
-import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import { StyleSheet } from 'react-native';
 
-export default function AddButton({ styleProps, onPress }) {
-	return (
-		<TouchableOpacity style={[styles.main, styleProps]} onPress={onPress}>
-			<Text style={styles.text}>+</Text>
-		</TouchableOpacity>
-	);
-}
-
-const styles = StyleSheet.create({
-	main: {
+export default StyleSheet.create({
+	container: {
 		justifyContent: 'center',
 		alignItems: 'center',
 		width: 54,

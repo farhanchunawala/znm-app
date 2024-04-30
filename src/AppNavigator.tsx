@@ -9,6 +9,8 @@ import Header from './components/Header';
 import LoginScreen from './features/login/LoginScreen';
 import Contacts from './screens/Contacts/Screen';
 import AddContacts from './screens/AddContacts/Screen';
+import Fabrics from './screens/Fabrics/Screen';
+import AddFabrics from './screens/AddFabrics/Screen';
 import HomeScreen from './screens/HomeScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import ProfileEditScreen from './screens/ProfileEditScreen';
@@ -33,7 +35,7 @@ const AppNavigator = () => {
 			<NavigationContainer>
 				<Stack.Navigator
 					// initialRouteName={loginStatus ? 'Home' : 'Login'}>
-					initialRouteName='Contacts'>
+					initialRouteName="Fabrics">
 					<Stack.Screen
 						name="Login"
 						component={LoginScreen}
@@ -52,7 +54,17 @@ const AppNavigator = () => {
 					<Stack.Screen
 						name="AddContacts"
 						component={AddContacts}
+						options={{ headerShown: false }}
+					/>
+					<Stack.Screen
+						name="Fabrics"
+						component={Fabrics}
 						options={{ header: Header }}
+					/>
+					<Stack.Screen
+						name="AddFabrics"
+						component={AddFabrics}
+						options={{ headerShown: false }}
 					/>
 					<Stack.Screen
 						name="Profile"

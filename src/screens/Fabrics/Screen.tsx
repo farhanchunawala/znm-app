@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View, Text, ScrollView, ActivityIndicator } from 'react-native';
+import { StyleSheet, View, Text, ActivityIndicator } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import AddButtonStyles from '@/src/components/elements/styles/GoogleContacts/AddButton';
 // import * as ImagePicker from 'expo-image-picker';
 // import { GestureHandlerRootView } from "react-native-gesture-handler";
 // import * as MediaLibrary from 'expo-media-library';
@@ -8,7 +9,7 @@ import { useNavigation } from '@react-navigation/native';
 // import domtoimage from 'dom-to-image';
 
 import TabNav from '../../components/TabNav';
-import ContactList from './ContactList';
+import FabricList from './FabricList';
 import Button from '@/src/components/elements/Button';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
@@ -24,8 +25,8 @@ export default function ContactsScreen() {
 		const fetchData = async () => {
 			try {
 				const response = await axios.get(
-					'http://192.168.147.86:3000/api/user',
-					// 'http://192.168.1.47:3000/api/user',
+					'http://192.168.147.86:3000/api/fabric',
+					// 'http://192.168.1.47:3000/api/fabric',
 				);
 				setUsers(response.data); // assuming the data array contains the user data
 				setLoading(false);
@@ -48,12 +49,12 @@ export default function ContactsScreen() {
 
 	return (
 		<View style={styles.main}>
-			<ContactList items={users} />
+			<FabricList items={users} />
 			<Button
-				style="AddButton"
-				styleProps={styles.addButton}
+				styles={AddButtonStyles}
+				containerStyle={styles.addButton}
 				text="+"
-				onPress={() => navigation.navigate('AddContacts')}
+				onPress={() => navigation.navigate('AddFabrics')}
 			/>
 			<TabNav />
 			<StatusBar style="auto" />
