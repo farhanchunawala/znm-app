@@ -15,6 +15,7 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 
 export default function ContactsScreen() {
+	const apiUrl = process.env.EXPO_PUBLIC_API_URL;
 	const navigation = useNavigation();
 
 	const [users, setUsers] = useState([]);
@@ -24,10 +25,7 @@ export default function ContactsScreen() {
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
-				const response = await axios.get(
-					'http://192.168.147.86:3000/api/fabric',
-					// 'http://192.168.1.47:3000/api/fabric',
-				);
+				const response = await axios.get(apiUrl + '/api/fabric');
 				setUsers(response.data); // assuming the data array contains the user data
 				setLoading(false);
 			} catch (err) {

@@ -1,5 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View, Text, ScrollView, ActivityIndicator } from 'react-native';
+import {
+	StyleSheet,
+	View,
+	Text,
+	ScrollView,
+	ActivityIndicator,
+} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 // import * as ImagePicker from 'expo-image-picker';
 // import { GestureHandlerRootView } from "react-native-gesture-handler";
@@ -14,6 +20,7 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 
 export default function ContactsScreen() {
+	const apiUrl = process.env.EXPO_PUBLIC_API_URL;
 	const navigation = useNavigation();
 
 	const [users, setUsers] = useState([]);
@@ -23,10 +30,7 @@ export default function ContactsScreen() {
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
-				const response = await axios.get(
-					'http://192.168.147.86:3000/api/user',
-					// 'http://192.168.1.47:3000/api/user',
-				);
+				const response = await axios.get(apiUrl + '/api/user');
 				setUsers(response.data); // assuming the data array contains the user data
 				setLoading(false);
 			} catch (err) {

@@ -22,6 +22,7 @@
     "dom-to-image": "^2.6.0",
     "expo": "^50.0.14",
     "expo-build-properties": "~0.11.1",
+    "expo-contacts": "~12.8.2",
     "expo-dev-client": "~3.3.8",
     "expo-font": "~11.10.2",
     "expo-image-picker": "~14.7.1",
@@ -39,8 +40,7 @@
     "react-native-view-shot": "3.8.0",
     "react-native-web": "~0.19.6",
     "react-redux": "^9.1.0",
-    "redux-persist": "^6.0.0",
-    "expo-contacts": "~12.8.2"
+    "redux-persist": "^6.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
