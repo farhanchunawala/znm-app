@@ -7,6 +7,7 @@ import {
 	ActivityIndicator,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import AddButtonStyles from '@/src/styles/google/addButton';
 // import * as ImagePicker from 'expo-image-picker';
 // import { GestureHandlerRootView } from "react-native-gesture-handler";
 // import * as MediaLibrary from 'expo-media-library';
@@ -15,7 +16,7 @@ import { useNavigation } from '@react-navigation/native';
 
 import TabNav from '../../components/TabNav';
 import ContactList from './ContactList';
-import Button from '@/src/components/elements/Button';
+import Button from '@/src/elements/Button';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 
@@ -54,8 +55,8 @@ export default function ContactsScreen() {
 		<View style={styles.main}>
 			<ContactList items={users} />
 			<Button
-				style="AddButton"
-				styleProps={styles.addButton}
+				styles={AddButtonStyles}
+				containerStyle={styles.addButton}
 				text="+"
 				onPress={() => navigation.navigate('AddContacts')}
 			/>

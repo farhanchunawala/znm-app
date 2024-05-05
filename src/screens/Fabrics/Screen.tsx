@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View, Text, ActivityIndicator } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import AddButtonStyles from '@/src/components/elements/styles/GoogleContacts/AddButton';
+import AddButtonStyles from '@/src/styles/google/addButton';
 // import * as ImagePicker from 'expo-image-picker';
 // import { GestureHandlerRootView } from "react-native-gesture-handler";
 // import * as MediaLibrary from 'expo-media-library';
@@ -10,11 +10,11 @@ import AddButtonStyles from '@/src/components/elements/styles/GoogleContacts/Add
 
 import TabNav from '../../components/TabNav';
 import FabricList from './FabricList';
-import Button from '@/src/components/elements/Button';
+import Button from '@/src/elements/Button';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 
-export default function ContactsScreen() {
+export default function FabricsScreen() {
 	const apiUrl = process.env.EXPO_PUBLIC_API_URL;
 	const navigation = useNavigation();
 

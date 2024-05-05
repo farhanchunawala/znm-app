@@ -35,7 +35,7 @@ const AppNavigator = () => {
 			<NavigationContainer>
 				<Stack.Navigator
 					// initialRouteName={loginStatus ? 'Home' : 'Login'}>
-					initialRouteName="Fabrics">
+					initialRouteName="AddFabrics">
 					<Stack.Screen
 						name="Login"
 						component={LoginScreen}

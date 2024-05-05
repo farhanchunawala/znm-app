@@ -1,12 +1,13 @@
 import { useNavigation } from '@react-navigation/native';
 import { TouchableOpacity, StyleSheet, Text, View } from 'react-native';
 import { Svg, Path, G, Defs, ClipPath, Rect } from 'react-native-svg';
+import globalStyles from '../styles/globalStyles';
 
 export default function TabNav() {
 	const navigation = useNavigation();
 
 	return (
-		<View style={styles.container}>
+		<View style={[globalStyles.footer, styles.container]}>
 			<View style={styles.tabContainer}>
 				<TouchableOpacity
 					onPress={() => navigation.navigate('Contacts')}
@@ -172,15 +173,9 @@ export default function TabNav() {
 
 const styles = StyleSheet.create({
 	container: {
-		width: '100%',
 		height: 83,
 		backgroundColor: '#FFFFFF',
-		// position
-		// flexGrow: 1,
-		// bottom: 0,
 		padding: 10,
-		position: 'absolute',
-		bottom: 0,
 	},
 	tabContainer: {
 		justifyContent: 'space-around',
