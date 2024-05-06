@@ -14,7 +14,7 @@ export default function FabricList({ items }) {
 
 	const renderItem = ({ item }) => (
 		<View style={styles.listItem}>
-			<Text style={styles.text}>Brand: {item.brand}</Text>
+			<Text style={styles.text}>{item._id} {item.brand}</Text>
 		</View>
 	);
 

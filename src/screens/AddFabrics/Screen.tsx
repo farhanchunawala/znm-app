@@ -8,12 +8,36 @@ import {
 	TouchableOpacity,
 	FlatList,
 } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import Button from '@/src/elements/Button';
 import InputBoxStyles from '@/src/styles/google/inputBox';
 import CapsuleButtonStyles from '@/src/styles/google/capsuleButton';
 import globalStyles from '@/src/styles/globalStyles';
+import { useState } from 'react';
+import axios from 'axios';
 
 export default function AddFabricsScreen() {
+	const [brand, setBrand] = useState('');
+	const apiUrl = process.env.EXPO_PUBLIC_API_URL;
+	const navigation = useNavigation();
+
+	const saveFabric = async () => {
+		try {
+			const response = await axios.post(apiUrl + '/api/fabric/upsert', {
+				brand,
+			});
+			if (response.data.success) {
+				console.log(response.data.message);
+				navigation.goBack();
+			}
+		} catch (error) {
+			console.error(error);
+			this.errored = true;
+		} finally {
+			this.loading = false;
+		}
+	};
+
 	const renderItemSeparator = () => {
 		return <View style={styles.separator} />;
 	};
@@ -21,7 +45,12 @@ export default function AddFabricsScreen() {
 	const renderItem = ({ item }) => (
 		<View style={styles.row}>
 			<Text style={styles.placeholder}>Brand</Text>
-			<TextInput style={styles.input} placeholder="Enter Brand" />
+			<TextInput
+				style={styles.input}
+				placeholder="Enter Brand"
+				value={brand}
+				onChangeText={setBrand}
+			/>
 		</View>
 	);
 
@@ -30,29 +59,19 @@ export default function AddFabricsScreen() {
 			<View>
 				<FlatList
 					style={styles.container}
-					data={[{ _id: '1' }, { _id: '2' }, { _id: '3' }]}
-					keyExtractor={item => item._id}
-					renderItem={renderItem}
-					ItemSeparatorComponent={renderItemSeparator}
-				/>
-				<FlatList
-					style={styles.container}
-					data={[{ _id: '1' }, { _id: '2' }, { _id: '3' }]}
-					keyExtractor={item => item._id}
-					renderItem={renderItem}
-					ItemSeparatorComponent={renderItemSeparator}
-				/>
-				<FlatList
-					style={styles.container}
-					data={[{ _id: '1' }, { _id: '2' }, { _id: '3' }]}
+					data={[{ _id: '1' }]}
 					keyExtractor={item => item._id}
 					renderItem={renderItem}
 					ItemSeparatorComponent={renderItemSeparator}
 				/>
 			</View>
 			<View style={[globalStyles.footer, styles.footer]}>
-				<Text style={styles.footerText}>Cancel</Text>
-				<Text style={styles.footerText}>Save</Text>
+				<TouchableOpacity onPress={() => navigation.goBack()}>
+					<Text style={styles.footerText}>Cancel</Text>
+				</TouchableOpacity>
+				<TouchableOpacity onPress={saveFabric}>
+					<Text style={styles.footerText}>Save</Text>
+				</TouchableOpacity>
 			</View>
 			<StatusBar style="auto" />
 		</View>
