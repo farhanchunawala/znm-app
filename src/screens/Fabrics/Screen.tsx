@@ -10,23 +10,32 @@ import AddButtonStyles from '@/src/styles/google/addButton';
 
 import TabNav from '../../components/TabNav';
 import FabricList from './FabricList';
+import FabricList2 from './FabricList2';
 import Button from '@/src/elements/Button';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+
+interface Fabric {
+	id: number;
+	name: string;
+	// Add other properties as per your API response
+}
 
 export default function FabricsScreen() {
 	const apiUrl = process.env.EXPO_PUBLIC_API_URL;
 	const navigation = useNavigation();
 
-	const [users, setUsers] = useState([]);
+	const [fabrics, setFabrics] = useState([]);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
 
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
-				const response = await axios.get(apiUrl + '/api/fabric');
-				setUsers(response.data); // assuming the data array contains the user data
+				const response = await axios.get<Fabric[]>(
+					`${apiUrl}/api/fabric`,
+				);
+				setFabrics(response.data); // assuming the data array contains the user data
 				setLoading(false);
 			} catch (err) {
 				setError(err.message);
@@ -47,7 +56,7 @@ export default function FabricsScreen() {
 
 	return (
 		<View style={styles.main}>
-			<FabricList items={users} />
+			<FabricList2 items={fabrics} />
 			<Button
 				styles={AddButtonStyles}
 				containerStyle={styles.addButton}
